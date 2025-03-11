@@ -11,12 +11,6 @@ public class Game {
     }
 
     public int round(String playerName1, String playerName2) {
-        if (searchByName(playerName1) == null) {
-            throw new NotRegisteredException("Player with name " + playerName1 + " not found");
-        }
-        if (searchByName(playerName2) == null) {
-            throw new NotRegisteredException("Player with name " + playerName2 + " not found");
-        }
         if (searchByName(playerName1).getStrength() < searchByName(playerName2).getStrength()) {
             return 2;
         } else if (searchByName(playerName1).getStrength() > searchByName(playerName2).getStrength()) {
@@ -32,6 +26,6 @@ public class Game {
                 return player;
             }
         }
-        return null;
+        throw new NotRegisteredException("Player with name " + name + " not found");
     }
 }

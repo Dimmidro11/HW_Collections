@@ -40,6 +40,14 @@ public class GameTest {
     }
 
     @Test
+    public void shouldNotFindPlayerByName() {
+
+        Assertions.assertThrows(NotRegisteredException.class, () -> {
+            game.searchByName("Петр");
+        });
+    }
+
+    @Test
     public void shouldWinVladislavPlayer1() {
 
         int expected = 1;
