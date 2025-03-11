@@ -21,12 +21,11 @@ public class Game {
     }
 
     public Integer searchByName(String name) {
-        for (String key : players.keySet()) {
-            if (key.equals(name)) {
-                return players.get(name);
-            }
+        if (players.get(name) == null) {
+            throw new NotRegisteredException("Player with name " + name + " not found");
+        } else {
+            return players.get(name);
         }
-        throw new NotRegisteredException("Player with name " + name + " not found");
     }
 }
 
